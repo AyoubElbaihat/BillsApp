@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Create Bill</title>
 </head>
 <body>
-$END$
+<h2>Create Bill</h2>
+<form th:action="@{/bills}" method="post" th:object="${bill}">
+  <label for="invoiceDate">Date of Invoice:</label>
+  <input type="date" id="invoiceDate" name="invoiceDate" th:field="*{invoiceDate}" required><br>
+  <label for="paymentMethod">Payment Method:</label>
+  <input type="text" id="paymentMethod" name="paymentMethod" th:field="*{paymentMethod}" required><br>
+  <label for="customer">Customer:</label>
+  <select id="customer" name="customer.id" th:field="*{customer.id}" required>
+    <option th:each="customer : ${customers}" th:value="${customer.id}" th:text="${customer.companyName}"></option>
+  </select><br>
+  <label for="products">Products:</label>
+  <select multiple id="products" name="products" required>
+    <option th:each="product : ${products}" th:value="${product.id}" th:text="${product.description}"></option>
+  </select><br>
+  <input type="submit" value="Create">
+</form>
 </body>
 </html>

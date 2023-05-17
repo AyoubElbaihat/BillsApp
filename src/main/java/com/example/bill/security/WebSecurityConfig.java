@@ -1,6 +1,6 @@
 package com.example.bill.security;
 
-import com.example.phone.service.UserDetailsServiceImpl;
+import com.example.bill.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -41,10 +41,10 @@ public class WebSecurityConfig {
                 .formLogin(form ->{
                     form
                             .loginPage("/login")
-                            .usernameParameter("email")
+                            .usernameParameter("username")
                             .passwordParameter("password")
                             .permitAll()
-                            .defaultSuccessUrl("/auth/profile");
+                            .defaultSuccessUrl("/customers");
                 })
                 .logout(logout->{
                     logout

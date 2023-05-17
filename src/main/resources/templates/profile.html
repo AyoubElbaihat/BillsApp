@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Profile</title>
 </head>
 <body>
-$END$
+<h2>Profile</h2>
+Authenticated username:
+<div sec:authentication="name"></div>
+Authenticated full name:
+<div sec:authentication="principal.fullName"></div>
+Authenticated user roles:
+<div sec:authentication="principal.authorities"></div>
 </body>
 </html>

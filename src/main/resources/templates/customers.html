@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Customers</title>
 </head>
 <body>
-$END$
+<h2>Customers</h2>
+<table>
+  <tr>
+    <th>Company Name</th>
+    <th>Address</th>
+    <th>Phone Number</th>
+  </tr>
+  <tr th:each="customer : ${customers}">
+    <td th:text="${customer.companyName}"></td>
+    <td th:text="${customer.street + ', ' + customer.postalCode + ', ' + customer.city}"></td>
+    <td th:text="${customer.phoneNumber}"></td>
+  </tr>
+</table>
+<a href="/customers/new">Create New Customer</a>
 </body>
 </html>

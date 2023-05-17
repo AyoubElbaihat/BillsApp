@@ -1,10 +1,7 @@
 package com.example.bill.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -13,12 +10,16 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@RequiredArgsConstructor
 public class Bill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private LocalDate invoiceDate;
+
     private LocalDate dueDate;
+    @NonNull
     private String paymentMethod;
 
     @ManyToOne
@@ -26,4 +27,6 @@ public class Bill {
 
     @ManyToMany
     private List<Product> products;
+
+
 }

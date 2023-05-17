@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Bills</title>
 </head>
 <body>
-$END$
+<h2>Bills</h2>
+<table>
+  <tr>
+    <th>Date of Invoice</th>
+    <th>Due Date</th>
+    <th>Payment Method</th>
+    <th>Customer</th>
+    <th>Products</th>
+  </tr>
+  <tr th:each="bill : ${bills}">
+    <td th:text="${bill.invoiceDate}"></td>
+    <td th:text="${bill.dueDate}"></td>
+    <td th:text="${bill.paymentMethod}"></td>
+    <td th:text="${bill.customer.companyName}"></td>
+    <td>
+      <ul>
+        <li th:each="product : ${bill.products}" th:text="${product.description}"></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<a href="/bills/new">Create New Bill</a>
 </body>
 </html>
