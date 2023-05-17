@@ -30,6 +30,7 @@ public class BillApplication implements CommandLineRunner {
     @Transactional
     public void run(String... args) throws Exception{
 //        User user1 = new User("admin@my-invoice.fr", passwordEncoder.encode("qwerty"));
+//        user1.setFullName("admin");
 //        user1.setRoleList(Arrays.asList(new Role("ADMIN")));
 //        userRepository.save(user1);
 

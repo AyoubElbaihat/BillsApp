@@ -26,6 +26,10 @@ public class User implements UserDetails {
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private List<Role> roleList;
 
+    public String getFullName() {
+        return fullName;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this
